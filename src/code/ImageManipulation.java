@@ -1,6 +1,7 @@
 package code;
 
 import image.Pixel;
+import image.APImage;
 
 public class ImageManipulation {
 
@@ -8,8 +9,8 @@ public class ImageManipulation {
      *  Write a statement that will display the image in a window
      */
     public static void main(String[] args) {
-
-
+        APImage image = new APImage("cyberpunk2077.jpg");
+        image.draw();
     }
 
     /** CHALLENGE ONE: Grayscale
@@ -21,7 +22,17 @@ public class ImageManipulation {
      * Calculate the average of the red, green, and blue components of the pixel.
      * Set the red, green, and blue components to this average value. */
     public static void grayScale(String pathOfFile) {
-
+        APImage image = new APImage(pathOfFile);
+        for(int i = 0; i<image.getWidth(); i++){
+            for(int j = 0; image.getHeight(); j++){
+                Pixel pixel = image.getPixel(i,j);
+                int average = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
+                pixel.setBlue(average);
+                pixel.setGreen(average);
+                pixel.setRed(average);
+            }
+        }
+        image.draw;
     }
 
     /** A helper method that can be used to assist you in each challenge.
